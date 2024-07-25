@@ -10,6 +10,8 @@ import jakarta.persistence.Table;
 @Table(name = "cliente")
 public class Cliente {
 
+
+    //Classe temporária, será removida?
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private int id;
