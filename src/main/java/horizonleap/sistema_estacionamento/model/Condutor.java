@@ -27,12 +27,10 @@ public class Condutor {
     @Column
     MetodoPagamento metodoFavorito;
 
-    /**
-     * @param nome
-     * @param endereco
-     * @param infoContato
-     * @param metodoFavorito
-     */
+
+    public Condutor() {
+    }
+
     public Condutor(String nome, String endereco, String infoContato, MetodoPagamento metodoFavorito) {
         this.nome = nome;
         this.endereco = endereco;
