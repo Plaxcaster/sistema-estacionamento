@@ -1,5 +1,6 @@
 package horizonleap.sistema_estacionamento.service;
 
+import org.hibernate.mapping.MetadataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -34,6 +35,12 @@ public class CondutorService {
         return new dadosCondutorDTO(condutor.getId(), condutor.getNome(), condutor.getEndereco(),
                 condutor.getInfoContato(), condutor.getMetodoFavorito(), listaVeiculos);
 
+    }
+
+    public Condutor updateFormaPagamento(Integer idCondutor, String formaPagamento) {
+        var condutor = condutorRepository.findById(idCondutor).get();
+        condutor.setMetodoFavorito(MetodoPagamento.valueOf(formaPagamento));
+        return condutorRepository.save(condutor);
     }
 
 }
