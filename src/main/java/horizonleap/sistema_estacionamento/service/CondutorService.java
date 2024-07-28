@@ -1,5 +1,6 @@
 package horizonleap.sistema_estacionamento.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import horizonleap.sistema_estacionamento.enums.MetodoPagamento;
@@ -8,6 +9,7 @@ import horizonleap.sistema_estacionamento.repository.CondutorRepository;
 
 @Service
 public class CondutorService {
+    @Autowired
     private CondutorRepository condutorRepository;
 
     public Condutor save(String nome, String endereco, String infoContato, MetodoPagamento metodoPagamento) {
