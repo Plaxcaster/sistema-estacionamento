@@ -25,7 +25,7 @@ public class Veiculo {
     private String placa;
 
     @ManyToOne
-    @JoinColumn(name = "id")
+    @JoinColumn(referencedColumnName = "id")
     private Condutor condutor;
 
     public int getId() {

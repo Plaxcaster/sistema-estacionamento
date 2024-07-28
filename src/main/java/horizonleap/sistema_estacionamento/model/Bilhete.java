@@ -29,7 +29,7 @@ public class Bilhete {
     private String infoContato;
 
     @ManyToOne
-    @JoinColumn(name = "id")
+    @JoinColumn(referencedColumnName = "id")
     private Veiculo veiculo;
 
 }
