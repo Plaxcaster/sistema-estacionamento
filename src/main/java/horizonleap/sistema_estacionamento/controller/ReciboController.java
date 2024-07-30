@@ -1,7 +1,5 @@
 package horizonleap.sistema_estacionamento.controller;
 
-import java.math.BigDecimal;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import horizonleap.sistema_estacionamento.model.ReciboDTO;
 import horizonleap.sistema_estacionamento.service.ReciboService;
+import io.swagger.v3.oas.annotations.Operation;
 
 @RestController
 @RequestMapping("/Recibo")
@@ -18,7 +17,7 @@ public class ReciboController {
     @Autowired
     private ReciboService service;
 
-    
+    @Operation(summary = "Consultar os dados para apresentar em um recibo" ,  tags = "Recibo")
     @GetMapping("/{id_bilhete}")
     public ResponseEntity<ReciboDTO> consultarRecibo(@PathVariable String id_bilhete){
         try {
