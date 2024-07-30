@@ -23,6 +23,14 @@ public class Bilhete {
 
     @Column
     private LocalDateTime timestampInicio;
+    public void setTimestampInicio(LocalDateTime timestampInicio) {
+        this.timestampInicio = timestampInicio;
+    }
+
+    public void setTimestampFim(LocalDateTime timestampFim) {
+        this.timestampFim = timestampFim;
+    }
+
     @Column
     private LocalDateTime timestampFim;
     @Column
@@ -46,6 +54,8 @@ public class Bilhete {
         return timestampInicio;
     }
 
+    
+
     /**
      * @return the timestampFim
      */
@@ -65,6 +75,10 @@ public class Bilhete {
      */
     public Veiculo getVeiculo() {
         return veiculo;
+    }
+
+    public void setVeiculo(Veiculo veiculo){
+        this.veiculo = veiculo;
     }
 
 

@@ -1,11 +1,26 @@
 package horizonleap.sistema_estacionamento.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import horizonleap.sistema_estacionamento.model.Bilhete;
+import horizonleap.sistema_estacionamento.service.BilheteService;
 
 @RestController
 @RequestMapping("/iniciarBilheteFixo")
 public class IniciarBilheteFixo {
-   //TODO implementar endpoint de iniciar um bilhete de estacionamento de duração fixa
+
+   @Autowired
+   BilheteService service;
+
+   @PostMapping
+   public ResponseEntity<Bilhete> iniciarBilheteFixo(@RequestBody int veiculoId, int duracao) {
+      
+      return ResponseEntity.ok(service.salvarBilheteFixo(veiculoId, duracao));
+   }
 
 }

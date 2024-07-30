@@ -24,4 +24,8 @@ public class VeiculoService {
         return veiculoRepository.save(veiculo);
     }
 
+    public Veiculo busca(int id_veiculo) {
+        return veiculoRepository.findById(id_veiculo).get();
+    }
+
 }
