@@ -15,7 +15,7 @@ import jakarta.persistence.Table;
 public class Condutor {
     @Id
     @Column
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column

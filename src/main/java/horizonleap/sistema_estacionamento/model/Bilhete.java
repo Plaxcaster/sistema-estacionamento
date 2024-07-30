@@ -18,7 +18,7 @@ import jakarta.persistence.Table;
 public class Bilhete {
     @Id
     @Column
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column
