@@ -6,10 +6,12 @@ insert into CONDUTOR ( id , metodo_favorito , endereco , info_contato , nome ) v
 INSERT INTO VEICULO ( CONDUTOR_ID , ID, NOME_MODELO , PLACA) VALUES 
 ( 1 , 1 , 'Gol' , 'PlacaGustavo1' ),
 (1 , 2 , 'Celta' , 'PlacaGustavo2'),
-(2 , 3 , 'Palio' , 'Placapla1');
+(2 , 3 , 'Palio' , 'Placapla1'),
+(3 , 4 , 'Golzin' , 'PlacaThiago');
 
 
 INSERT INTO BILHETE ( ID , VEICULO_ID , TIMESTAMP_INICIO , TIMESTAMP_FIM , INFO_CONTATO ) VALUES  
 ( 1 , 1 , CURRENT_TIMESTAMP - 30 MINUTE,  CURRENT_TIMESTAMP  , '  ' ),
 ( 2 , 1 , CURRENT_TIMESTAMP - 2 HOUR,  CURRENT_TIMESTAMP  , '  ' ),
-( 3 , 2 , CURRENT_TIMESTAMP - 1 DAY,  CURRENT_TIMESTAMP  - 22 HOUR , '  ' );
+( 3 , 2 , CURRENT_TIMESTAMP - 1 DAY,  CURRENT_TIMESTAMP  - 22 HOUR , '  ' ),
+( 4 , 4 , CURRENT_TIMESTAMP - 61 MINUTE,  CURRENT_TIMESTAMP , '  ' );

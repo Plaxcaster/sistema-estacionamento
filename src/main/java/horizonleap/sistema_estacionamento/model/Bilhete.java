@@ -32,4 +32,40 @@ public class Bilhete {
     @JoinColumn(referencedColumnName = "id")
     private Veiculo veiculo;
 
+    /**
+     * @return the id
+     */
+    public int getId() {
+        return id;
+    }
+
+    /**
+     * @return the timestampInicio
+     */
+    public LocalDateTime getTimestampInicio() {
+        return timestampInicio;
+    }
+
+    /**
+     * @return the timestampFim
+     */
+    public LocalDateTime getTimestampFim() {
+        return timestampFim;
+    }
+
+    /**
+     * @return the infoContato
+     */
+    public String getInfoContato() {
+        return infoContato;
+    }
+
+    /**
+     * @return the veiculo
+     */
+    public Veiculo getVeiculo() {
+        return veiculo;
+    }
+
+
 }
