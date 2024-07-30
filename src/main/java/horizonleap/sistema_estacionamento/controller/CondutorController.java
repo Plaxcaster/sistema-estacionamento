@@ -10,7 +10,6 @@ import horizonleap.sistema_estacionamento.model.Condutor;
 import horizonleap.sistema_estacionamento.model.dadosCondutorDTO;
 import horizonleap.sistema_estacionamento.service.CondutorService;
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
 
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -39,7 +38,7 @@ public class CondutorController {
 
     @Operation(summary = "Altera a forma de pagamento preferida do condutor", tags = { "Alteração", "Condutor" })
     @PutMapping("/{id_condutor}")
-    public ResponseEntity<Condutor> putMethodName(@PathVariable String id_condutor, @RequestBody String formaPagamento) {
+    public ResponseEntity<Condutor> alteraFormaPagamento(@PathVariable String id_condutor,  String formaPagamento) {
 
         try {
             Integer idCondutor = Integer.valueOf(id_condutor);
