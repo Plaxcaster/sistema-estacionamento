@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import horizonleap.sistema_estacionamento.model.Veiculo;
 import horizonleap.sistema_estacionamento.service.VeiculoService;
+import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
 
 @RestController
@@ -17,13 +18,9 @@ public class VeiculoController {
     @Autowired
     private VeiculoService service;
 
-    @GetMapping
-    public ResponseEntity<String> echo() {
-        return ResponseEntity.ok("Echo");
-    }
-
+    @Operation(summary = "Cadastra um Veículo para o Usuário", tags = {"Cadastro" , "Veiculo"})
     @PostMapping
-    public ResponseEntity<Veiculo> postMethodName(@RequestBody String nomeModelo , String placa , int id_condutor) {
+    public ResponseEntity<Veiculo> postMethodName(@RequestBody String nomeModelo, String placa, int id_condutor) {
         return ResponseEntity.ok(service.salvar(nomeModelo, placa, id_condutor));
     }
 }

@@ -20,7 +20,7 @@ public class BilheteService {
         Bilhete bilhete = new Bilhete();
 
         bilhete.setTimestampInicio(LocalDateTime.now());
-        bilhete.setTimestampInicio(LocalDateTime.now().plusHours(duracao));
+        bilhete.setTimestampFim(LocalDateTime.now().plusHours(duracao));
         bilhete.setVeiculo((veiculoService.busca(id_veiculo)));
 
         return bilheteRepository.save(bilhete);

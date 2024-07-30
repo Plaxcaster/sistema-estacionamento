@@ -9,8 +9,9 @@ import org.springframework.web.bind.annotation.RestController;
 import horizonleap.sistema_estacionamento.model.Condutor;
 import horizonleap.sistema_estacionamento.model.dadosCondutorDTO;
 import horizonleap.sistema_estacionamento.service.CondutorService;
+import io.swagger.v3.oas.annotations.Operation;
+
 import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.PathVariable;
 
 @RestController
@@ -20,6 +21,7 @@ public class CondutorController {
     @Autowired
     private CondutorService service;
 
+    @Operation(summary = "Consultar dados do Condutor", tags = { "Consulta", "Condutor" })
     @GetMapping()
     public ResponseEntity<Condutor> busca(Integer id_condutor) {
 
@@ -27,15 +29,16 @@ public class CondutorController {
 
     }
 
+    @Operation(summary = "Consultar dados do Condutor e seus carros", tags = { "Consulta", "Condutor" })
     @GetMapping("/dadosCondutor")
     public ResponseEntity<dadosCondutorDTO> consultarDadosCondutor(Integer id_condutor) {
 
         return ResponseEntity.ok(service.consultarDadosCondutor(id_condutor));
     }
 
+    @Operation(summary = "Altera a forma de pagamento preferida do condutor", tags = { "Alteração", "Condutor" })
     @PutMapping("/{id_condutor}")
-    public ResponseEntity<Condutor> putMethodName(@PathVariable String id_condutor,
-            @RequestBody String formaPagamento) {
+    public ResponseEntity<Condutor> putMethodName(@PathVariable String id_condutor, String formaPagamento) {
 
         try {
             Integer idCondutor = Integer.valueOf(id_condutor);
