@@ -19,9 +19,11 @@ public class BilheteService {
     public Bilhete salvarBilheteFixo(int id_veiculo, int duracao) {
         Bilhete bilhete = new Bilhete();
 
+        bilhete.setBilheteAtivo(true);
         bilhete.setTimestampInicio(LocalDateTime.now());
         bilhete.setTimestampFim(LocalDateTime.now().plusHours(duracao));
         bilhete.setVeiculo((veiculoService.busca(id_veiculo)));
+        bilhete.setIsFixo(true);
 
         return bilheteRepository.save(bilhete);
     }
@@ -29,9 +31,12 @@ public class BilheteService {
     public Bilhete salvarBilheteVariavel(int id_veiculo) {
         Bilhete bilhete = new Bilhete();
 
+
+        bilhete.setBilheteAtivo(true);
         bilhete.setTimestampInicio(LocalDateTime.now());
         bilhete.setTimestampFim(LocalDateTime.now().plusHours(1));
         bilhete.setVeiculo((veiculoService.busca(id_veiculo)));
+        bilhete.setIsFixo(false);
 
         return bilheteRepository.save(bilhete);
     }

@@ -44,6 +44,13 @@ public class Bilhete {
     @ColumnDefault ("true")
     private Boolean isFixo;
 
+    @Override
+    public String toString() {
+        return "Bilhete [id=" + id + ", timestampInicio=" + timestampInicio + ", timestampFim=" + timestampFim
+                + ", infoContato=" + infoContato + ", bilheteAtivo=" + bilheteAtivo + ", isFixo=" + isFixo
+                + ", veiculo=" + veiculo + "]";
+    }
+
     @ManyToOne
     @JoinColumn(referencedColumnName = "id")
     private Veiculo veiculo;
@@ -96,7 +103,7 @@ public class Bilhete {
         return bilheteAtivo;
     }
 
-    public void setIsFixo(boolean isFixo){
+    public void setIsFixo(Boolean isFixo) {
         this.isFixo = isFixo;
     }
     public boolean getIsFixo(){

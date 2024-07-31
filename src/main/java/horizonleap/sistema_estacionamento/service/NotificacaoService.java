@@ -1,6 +1,7 @@
 package horizonleap.sistema_estacionamento.service;
 
 import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,10 +21,10 @@ public class NotificacaoService {
     public void checarVencimentoBilheteFixo() {
         List<Bilhete> bilhetes = bilheteRepository.findAll();
         LocalDateTime now = LocalDateTime.now();
-        System.out.println("Debug: executada busca de bilhetes próximos de expirar");
+    
 
         for (Bilhete bilhete : bilhetes) {
-            if (bilhete.getTimestampFim().isBefore(now.plusMinutes(5)) && bilhete.getTimestampFim().isAfter(now)
+            if (bilhete.getTimestampFim().truncatedTo(ChronoUnit.MINUTES).equals(now.plusMinutes(5).truncatedTo(ChronoUnit.MINUTES))
                     && bilhete.getBilheteAtivo() == true && bilhete.getIsFixo()) {
 
                 sendNotification("Seu bilhete de número " + bilhete.getId() + " está próximo de expirar.");
@@ -34,12 +35,12 @@ public class NotificacaoService {
     public void checarVencimentoBilheteVariavel() {
         List<Bilhete> bilhetes = bilheteRepository.findAll();
         LocalDateTime now = LocalDateTime.now();
-        System.out.println("Debug: executada busca de bilhetes próximos de expirar (variavel)");
+    
 
         for (Bilhete bilhete : bilhetes) {
-            if (bilhete.getTimestampFim().isBefore(now.plusMinutes(5)) && bilhete.getTimestampFim().isAfter(now)
+            if (bilhete.getTimestampFim().truncatedTo(ChronoUnit.MINUTES).equals(now.plusMinutes(5).truncatedTo(ChronoUnit.MINUTES))
                     && bilhete.getBilheteAtivo() == true && !bilhete.getIsFixo()) {
-                        
+
                 bilhete.setTimestampFim(bilhete.getTimestampFim().plusHours(1));
                 sendNotification("Seu bilhete de número " + bilhete.getId() + " será renovado por mais uma hora.");
             }
