@@ -11,7 +11,7 @@
 	</parent>
 	<groupId>horizonleap</groupId>
 	<artifactId>sistema-estacionamento</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<name>sistema-estacionamento</name>
 	<description>Demo project for Spring Boot</description>
 	<url />
