@@ -30,11 +30,17 @@ public class BilheteService {
         Bilhete bilhete = new Bilhete();
 
         bilhete.setTimestampInicio(LocalDateTime.now());
+        bilhete.setTimestampFim(LocalDateTime.now().plusHours(1));
         bilhete.setVeiculo((veiculoService.busca(id_veiculo)));
 
         return bilheteRepository.save(bilhete);
     }
 
+    public Bilhete fecharBilhete(Integer idBilhete) {
+        var bilhete = bilheteRepository.findById(idBilhete).get();
+        bilhete.setBilheteAtivo(false);
+        return bilheteRepository.save(bilhete);
+    }
     // public Optional<Bilhete> buscarBilhetePorNumeroPlaca(String numeroPlaca) {
     //     return bilheteRepository.findByVeiculo_NumeroPlaca(numeroPlaca);
     // }

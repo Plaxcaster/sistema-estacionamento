@@ -3,6 +3,8 @@ package horizonleap.sistema_estacionamento.model;
 
 import java.time.LocalDateTime;
 
+import org.hibernate.annotations.ColumnDefault;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -35,6 +37,12 @@ public class Bilhete {
     private LocalDateTime timestampFim;
     @Column
     private String infoContato;
+    @Column
+    @ColumnDefault ("true")
+    private Boolean bilheteAtivo;
+    @Column
+    @ColumnDefault ("true")
+    private Boolean isFixo;
 
     @ManyToOne
     @JoinColumn(referencedColumnName = "id")
@@ -80,6 +88,23 @@ public class Bilhete {
     public void setVeiculo(Veiculo veiculo){
         this.veiculo = veiculo;
     }
+
+    public void setBilheteAtivo(boolean bilheteAtivo){
+        this.bilheteAtivo = bilheteAtivo;
+    }
+    public boolean getBilheteAtivo(){
+        return bilheteAtivo;
+    }
+
+    public void setIsFixo(boolean isFixo){
+        this.isFixo = isFixo;
+    }
+    public boolean getIsFixo(){
+        return isFixo;
+    }
+
+    
+
 
 
 }
